@@ -22,4 +22,4 @@ Now every search in chrome will be redirected to [search.paul-simon.dev](https:/
 Safari, by default, does not let you configure a custom search engine, so using an extension is required.
 
 For example the extension *[Customize Search Engine](https://apps.apple.com/de/app/customize-search-engine/id6445840140)* may be used.
-Follow the extensions instructions and type `https://search.paul-simon.dev?q=%s` into the field in the tab *standard search engine*.
+Follow the extension's instructions and type `https://search.paul-simon.dev?q=%s` into the field in the tab *standard search engine*.
