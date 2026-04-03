@@ -8,6 +8,11 @@
   </head>
   <body>
     <div id="app">
+      <div class="main-search-section">
+        <input type="text" id="main-search" placeholder="Search the web!" autofocus>
+        <button onclick="executeSearch()">Search</button>
+      </div>
+
       <h2>Search Command Shortcuts</h2>
       
       <div id="command-grid-header" class="grid-row header">
@@ -30,11 +35,19 @@
           <input 
             type="text" 
             id="new-url" 
-            placeholder="https://google.com/search?q=%s"
+            placeholder="https://duckduckgo.com/?q=%s"
             onkeydown="handleEnter(event)"
             >
           <button onclick="addCommand()">Save</button>
       </div>
+      <footer>
+        <div class="footer-links">
+            <a href="https://github.com/KuechenMuesli/custom-search-engine" target="_blank">Repository</a>
+            <a href="https://github.com/KuechenMuesli" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/paul-simon-470477272/" target="_blank">LinkedIn</a>
+        </div>
+        <p>© 2026 Paul Simon</p>
+    </footer>
     </div>
     <script type="text/javascript" src="script.js"></script>
   </body>

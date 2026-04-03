@@ -21,7 +21,7 @@ window.renderUI = function() {
 	listContainer.innerHTML = "";
 
 	if (localStorage.length === 0) {
-		localStorage.setItem("DEFAULT", "https://www.google.com/search?q=%s");
+		localStorage.setItem("DEFAULT", "https://duckduckgo.com/?q=%s");
 	}
 
 	const keys = Object.keys(localStorage).sort();
@@ -71,13 +71,30 @@ window.deleteCommand = function(key) {
 
 window.handleEnter = function(event, key) {
 	if (event.key === "Enter") {
-		if (key) {
+		if (event.target.id === "main-search") {
+			executeSearch();
+		} else if (key) {
 			updateCommand(key);
 		} else {
 			addCommand();
 		}
 	}
 };
+
+window.executeSearch = function() {
+    const input = document.getElementById("main-search").value.trim();
+    if (!input) return;
+
+    const { command, query } = parseCommandAndQuery(input);
+    const searchEngineUrl = localStorage.getItem(command) || localStorage.getItem("DEFAULT");
+
+    if (searchEngineUrl) {
+        const redirectUrl = searchEngineUrl.replace("%s", encodeURIComponent(query || ""));
+        window.location.href = redirectUrl; // Use .href for normal search from UI
+    }
+};
+
+document.getElementById("main-search")?.addEventListener("keydown", (e) => handleEnter(e));
 
 document.addEventListener("DOMContentLoaded", () => {
 	const queryParam = getQueryParam();
