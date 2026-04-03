@@ -4,9 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Search Engine Commands</title>
-    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <p>hallo</p>
+    <div id="app">
+      <h2>Search Command Shortcuts</h2>
+      
+      <div id="command-grid-header" class="grid-row header">
+          <div>Command</div>
+          <div>URL (use %s for query)</div>
+          <div>Actions</div>
+      </div>
+      <div id="command-list">
+          </div>
+
+      <hr>
+      <h3>Add New Command</h3>
+      <div class="add-container">
+          <input 
+            type="text" 
+            id="new-command" 
+            placeholder="!g"
+            onkeydown="handleEnter(event)"
+            >
+          <input 
+            type="text" 
+            id="new-url" 
+            placeholder="https://google.com/search?q=%s"
+            onkeydown="handleEnter(event)"
+            >
+          <button onclick="addCommand()">Save</button>
+      </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
